@@ -8,7 +8,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 2;
+  z-index: 200;
 }
   
 .modal-content {
@@ -23,11 +23,15 @@
     justify-content: center;
     align-items: center;
     text-align:center;
+    background-color: #191C1F;
+    border: 3px solid #fff;
+    border-radius: 40px;
 }
 
 .modal-content button { 
-  background-color: #efe49f;
-  border: none;
+  background-color: #191C1F;
+  border: 3px solid #fff;
+  color: #fff;
   font-size: 1.1rem;
   border-radius: 10px;
   height: 30px;
@@ -45,7 +49,9 @@
 }
 
 .modal__text { 
-  background-color: #efe49f;
+  background-color: #191C1F;
+  border: 3px solid #fff;
+  color: #fff;
   height: 100%;
   border-radius: 10px;
   padding-top: 60px;

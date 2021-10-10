@@ -62,7 +62,7 @@
     color: #fff;
     border-radius: 30px;
     font-size: 2.3rem;
-    max-height: 10vh;
+    max-height: 15vh;
     font-weight: 500;
 }
 
@@ -82,7 +82,19 @@
     margin-bottom: 35px;
 }
 
-@media screen and (max-width: 675px) { 
+.mint__signIn-input-false input { 
+    background-color: rgba(25,28,31, 0.7);
+    padding: 6px 30px;
+    padding-left: 35px;
+    border: 2px solid #fff;
+    color: #fff;
+    border-radius: 20px;
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+@media screen and (max-width: 1150px) { 
     .mintBg { 
         height: 100%;
         flex-direction: column;

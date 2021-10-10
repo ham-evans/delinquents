@@ -22,11 +22,6 @@ export default function Team () {
             <div className="team__imgContainer">
                 <div className="team__group">
                     <div className="team__imgIndividual">
-                        <img src={goldenx} alt="Developer GoldenX"/>
-                        <figcaption className="caption">GoldenX</figcaption>
-                        <p>Developer</p>
-                    </div>
-                    <div className="team__imgIndividual">
                         <img src={squeebo} alt="Developer Squeebo"/>
                         <figcaption className="caption">Squeebo</figcaption>
                         <p>Contract Developer</p>
@@ -36,29 +31,33 @@ export default function Team () {
                         <figcaption className="caption">Apollo 21</figcaption>
                         <p>Web Developer</p>
                     </div>
-                    
+                    <div className="team__imgIndividual">
+                        <img src={goldenx} alt="Developer GoldenX"/>
+                        <figcaption className="caption">GoldenX</figcaption>
+                        <p>Developer</p>
+                    </div>
                 </div>
                 <div className="team__group">
-                    <div className="team__imgIndividual">
+                    <div className="team__imgIndividual" onClick={onClick1}>
                             <img src={shiltoshi} alt="Developer" />
                             <figcaption className="caption">Shiltoshi</figcaption>
-                            <div onClick={onClick1}>
+                            <div>
                                 {showResults1 ? <p className="team__aboutTitle">About:</p> : <p className="team__aboutTitle active">About:</p>}
                                 {showResults1 ? <p>TA wizard and diamond  hand degen. The only thing I HODL harder than crypto and NFT’s is beer. I'm here to make a community first and art second. My DMs are open tell your mom.</p> : <p></p>}
                             </div>
                         </div>
-                    <div className="team__imgIndividual">
+                    <div className="team__imgIndividual" onClick={onClick2}>
                         <img src={Inkster} alt="Developer" />
                         <figcaption className="caption">Inkster_66</figcaption>
-                        <div onClick={onClick2}>
+                        <div >
                             {showResults2 ? <p className="team__aboutTitle">About:</p> : <p className="team__aboutTitle active">About:</p>}
                             {showResults2 ? <p>Newer to the blockchain, crypto and NFT space just trying to HODL. Aspiring digital artist trying to blend it like Beckham. WGMI.</p> : <p></p>}
                         </div>
                     </div>
-                    <div className="team__imgIndividual">
+                    <div className="team__imgIndividual" onClick={onClick3}>
                         <img src={ty} alt="Developer" />
                         <figcaption className="caption">Ty</figcaption>
-                        <div onClick={onClick3}>
+                        <div >
                             {showResults3 ? <p className="team__aboutTitle">About:</p> : <p className="team__aboutTitle active">About:</p>}
                             {showResults3 ? <p>I’m a business builder and a success junkie at heart. I love basketball, even though I'm built like Frodo Baggins I can drain 3’s like your girl drains your bank account. NBA Top Shot got me started in NFTs and Shiltoshi got me to love jpegs of animals. I probably have more children than you have NFTs.</p> : <p></p>}
                         </div>

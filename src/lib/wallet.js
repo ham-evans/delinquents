@@ -1,4 +1,3 @@
-
 class Wallet{
   accounts = [];
   chain    = null;

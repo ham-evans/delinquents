@@ -16,12 +16,12 @@ export default function Roadmap () {
                 <h1>Roadmap</h1>
             </div>
             <div className="roadmap__initial">
-                <p>10% Sold, we giveaway 2 Gold Founders coins to random holders.</p>
-                <p>25% Sold, we giveaway 5 Delinkuents to random holders.</p>
-                <p>50% Sold, we giveaway 1 Eth to 4 lucky holders.</p>
-                <p>75% Sold, 5 lucky holders will get a canvas made of their owned Delinkuent of choice.</p>
-                <p>90% Sold, Memebers gain access to all of our tattoo art to have their own work done.</p>
-                <p>100% Sold, member only merch store becomes active. Start planning Delinkuent Con/ Vegas party meet up.</p>
+                <p>10% Sold, we give away 2 Gold Founders coins to random holders.</p>
+                <p>25% Sold, we give away 5 Delinkuents to random holders.</p>
+                <p>50% Sold, we give away 1 ETH to 4 random holders.</p>
+                <p>75% Sold, 5 random holders will get a canvas made of their owned Delinkuent of choice.</p>
+                <p>90% Sold, Members gain access to all of our tattoo art to have their own work done.</p>
+                <p>100% Sold, our member only merch store becomes active. Start planning Delinkuent Con/ Vegas party meet up.</p>
             </div>
             <div className="roadmap__postTitle">
                 <h2>Post Launch Roadmap Q4 2021</h2>
@@ -31,8 +31,8 @@ export default function Roadmap () {
                     <div className="roadmap__individual" onClick={onClick1}>
                         <h4 className={showResults1 ? "roadmap__titleText  active" : "roadmap__titleText"}>Season Pass</h4>
                         <div className={showResults1 ? "roadmap__individualText  active" : "roadmap__individualText"}>
-                            <p>The Season pass will be an extension of the Crypto Delinkuents project, launched on a quarterly basis. The season pass will feature a new character and a set of limited edition tattoos only available in that season.</p>
-                            <p>The Season Passes will guarantee 2 or more of the seasonal tattoos populate on your character along with existing tattoos from our launch.</p>
+                            <p>The season pass will be an extension of the Crypto Delinkuents project which will launch on a quarterly basis. The season pass will feature a new character and a set of limited edition tattoos only available in that season.</p>
+                            <p>Each season pass will guarantee 2 or more of the seasonal tattoos populate on your character along with existing tattoos from our launch.</p>
                         </div>
                         
                     </div>
@@ -50,9 +50,9 @@ export default function Roadmap () {
                         <h4 className={showResults3 ? "roadmap__titleText  active" : "roadmap__titleText"}>Heists</h4>
                         <div className={showResults3 ? "roadmap__individualText  active" : "roadmap__individualText"}>
                             <p>Heists are a fun and engaging activity to allow the Crypto Delinkuents team to share profits from secondary market sales.</p>
-                            <p>Heists will be on a predetermined time frame (monthly or quarterly).</p>
-                            <p>When a heist happens we will set a parameter for eligibility. This will include items such as; must hold 3 Delinkuents or must hold a specific character(Example: must be holding a Shark race Delinkuent).</p>
-                            <p>A snapshot of holders will be taken at the end of the heist and will be used to distribute profits. Heists will take 38% of the commission earned from secondary market sales and distribute it in Eth to eligible holders of the Crypto Delinkuents project.</p>
+                            <p>Heists will be on a predetermined time frame TBD.</p>
+                            <p>Each heist will have unique parameters for eligibility. Examples of such parameters could be, but are not limited to: holding a specific character, number of characters, or race.</p>
+                            <p>A snapshot of holders will be taken at the end of the heist and will be used to distribute profits. Heists will take 38% of the commission earned from secondary market sales and distribute it in ETH to eligible holders of the Crypto Delinkuents project.</p>
                         </div>
                     </div>
                     <div className="roadmap__individual" onClick={onClick4}>

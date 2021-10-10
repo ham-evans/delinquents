@@ -72,6 +72,7 @@
     font-weight: 500;
     font-family: 'Akronim', cursive;
     font-size: 2rem;
+    cursor: pointer;
 }
 
 .team__imgContainer p { 

@@ -1,4 +1,3 @@
-
 import Wallet from './wallet.js';
 
 class EthereumSession{
@@ -309,7 +308,6 @@ class EthereumSession{
         this.isWeb3Connected = true;
         this.info({ 'isWeb3Connected': this.isWeb3Connected });
       });
-
       window.ethereum.on('disconnect', () => {
         this.isWeb3Connected = false;
         this.info({ 'isWeb3Connected': this.isWeb3Connected });
