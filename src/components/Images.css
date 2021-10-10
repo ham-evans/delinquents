@@ -1,0 +1,15 @@
+.images { 
+    height: 100%;
+    width: 100vw;
+    background: #191c1f;
+}
+
+.images__wrapper { 
+    display: flex;
+    flex-direction: row;
+    margin: 100px auto;
+}
+
+.images__imgIndividual { 
+
+}

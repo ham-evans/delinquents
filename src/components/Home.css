@@ -1,22 +1,56 @@
+
 .homeBg { 
-    height: 94vh;
+    height: 96vh;
     width: auto;
     margin: 0;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
+    background-color: #191C1F;
     object-fit: contain;
-    z-index: -5;
     position: relative;
-    background-image: url("../images/bgGiraffe.png");
+    text-align: center;
+    z-index: 1;
 }
 
-.homeBg h1 { 
-    margin: 0;
+.home__imgWrapper { 
+    margin: auto;
+    text-align: center;
+    height: 85%;
+    padding-bottom: 20px;
+    z-index: 2;
+}
+
+.home__logo { 
+    object-fit: contain;
+    height: 95%;
+}
+
+.home__buttonWrapper { 
+    margin-top: -200px;
+    transition: all .35s ease;
+    z-index: 4;
+    position: relative;
+}
+
+.home__buttonWrapper:hover { 
+    transform: scale(1.05);
+    cursor: pointer;
+}
+
+.home__button { 
+    background-color: rgba(25,28,31, 0.7);
+    padding: 15px 50px;
+    padding-bottom: 10px;
+    border: 2px solid #fff;
+    color: #fff;
+    border-radius: 30px;
+    font-size: 2.3rem;
+}
+
+.home__button:hover {
+    cursor: pointer;
 }
 
 @media screen and (max-width: 675px) {
-    .homeBg { 
-        background-image: url("../images/bgGiraffeMobile.png");
+    .home__imgWrapper {
+        margin-left: -90px;
     }
 }

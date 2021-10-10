@@ -1,5 +1,5 @@
 .navbar {
-    background-color: rgba(52,59,65,.5);
+    background-color: #191c1f;
     height: 80px;
     display: flex;
     justify-content: center;
@@ -7,10 +7,11 @@
     font-size: 1.6rem;
     top: 0;
     z-index: 20;
-    position: absolute;
+    position: relative;
     width: 100vw;
     font-weight: 600;
     overflow-x: hidden;
+    font-family: 'Akronim', cursive;
   }
 
   .nav__imgLogo { 
@@ -77,25 +78,16 @@
     line-height: 40px;
     margin-right: 1rem;
     overflow-y: hidden;
+    transition: all 0.35s ease;
   }
-  
-  .nav-item:after {
-    content: "";
-    display: block;
-    height: 3px;
-    width: 0;
-    background: transparent;
-    transition: width 0.7s ease, background-color 0.5s ease;
-  }
+
+  .nav-item:hover { 
+    transform: scale(1.2);
+    transition: all 0.35s ease;
+  } 
 
   .nav-item a { 
-      color: #fff
-  }
-
-  .nav-item:hover:after {
-    width: 100%;
-    background: #fff;
-    color: #fff;
+    color: #fff
   }
   
   .nav-icon {
@@ -103,15 +95,15 @@
   }
   
   @media screen and (max-width: 960px) {
-    .navbar {
-      overflow-y: hidden;
-    }
-    .navbar.active{ 
-        overflow-x: visible;
-        background: transparent;
-        transition: all 0.5s ease;
+    .navbar { 
+      padding-top: 10px;
+      overflow: visible;
     }
 
+    .nav-container { 
+      height: auto;
+    }
+    
     .nav-logo { 
       font-size: 2.3rem;
       margin-left: 25px;
@@ -121,24 +113,32 @@
     .nav-menu {
       display: flex;
       flex-direction: column;
+      width: 100%;
       position: absolute;
+      top: -600%;
       opacity: 1;
       transition: all 0.5s ease;
-      margin-right: auto;
-      transform: translate(0, -100%);
-      width: 100%;
+      margin-right: 0;
+      padding-bottom: 15px;
+      padding-left: 9px;
     }
-
+  
     .nav-menu.active {
-      background: rgba(52,59,65,.5);
-      padding-top: 80px;
+      background: #191c1f;
+      padding-top: 100px;
       top: 0px;
       left: 0px;
       right: 0px;
       opacity: 1;
+      padding-left: 9px;
       transition: all 0.5s ease;
-      transform: translate(0);
-      width: auto;
+      width: 98vw;
+      height: 100vh;
+    }
+
+    .nav-item { 
+      padding-top: 10px;
+      padding-bottom: 10px;
     }
 
     .nav-item .active {
@@ -148,6 +148,7 @@
 
     .nav-links {
       padding: .5rem;
+      padding-top: 30px;
       width: 100%;
       display: table;
     }
@@ -160,15 +161,7 @@
       font-size: 1.8rem;
       cursor: pointer;
       color: #fff;
-      margin-bottom: 65px;
-    }
-  }
-
-  @media screen and (max-width: 960px) {
-    .nav-logo { 
-      margin-left: 10%;
-      margin-bottom: 0;
-      margin-top: 7px;
+      margin-bottom: 50px;
     }
   }
   

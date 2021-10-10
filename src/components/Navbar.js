@@ -64,7 +64,7 @@ export default class Navbar extends Component {
               </Link>
             </li>
           </ul>
-          <div className="nav-icon">
+          <div className="nav-icon" onClick={this.handleToggle}>
             {this.state.isOpen ? <FontAwesomeIcon icon={faTimes} />
               : <FontAwesomeIcon icon={faBars} />
             }

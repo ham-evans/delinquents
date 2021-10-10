@@ -1,0 +1,115 @@
+
+.mintBg { 
+    height: 80vh;
+    width: auto;
+    margin: 0;
+    background-color: #191C1F;
+    object-fit: contain;
+    position: relative;
+    text-align: center;
+    z-index: 1;
+    display: flex;
+    flex-direction: row;
+    padding-bottom: 80px;
+    color: #fff
+}
+
+.mint__imgWrapper { 
+    margin: auto 6vw;
+    text-align: center;
+    height: 90%;
+    padding-bottom: 50px;
+    z-index: 2;
+    overflow: visible;
+}
+
+.mint__logo { 
+    padding-top: 80px;
+    object-fit: contain;
+    height: 90%;
+}
+
+.mint__textWrapper { 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin:auto;
+    overflow: visible;
+}
+
+.mint__text {
+    line-height: 50px;
+    font-size: 1.4rem;
+}
+
+.mint__buttonWrapper { 
+    transition: all .35s ease;
+    z-index: 4;
+    overflow: visible;
+}
+
+.mint__buttonWrapper:hover { 
+    transform: scale(1.05);
+    cursor: pointer;
+}
+
+.mint__button { 
+    background-color: rgba(25,28,31, 0.7);
+    padding: 15px 50px;
+    padding-bottom: 10px;
+    border: 2px solid #fff;
+    color: #fff;
+    border-radius: 30px;
+    font-size: 2.3rem;
+    max-height: 10vh;
+    font-weight: 500;
+}
+
+.mint__button:hover {
+    cursor: pointer;
+}
+
+.mint__signIn-input input { 
+    background-color: rgba(25,28,31, 0.7);
+    padding: 6px 30px;
+    padding-left: 35px;
+    border: 2px solid #fff;
+    color: #fff;
+    border-radius: 20px;
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+@media screen and (max-width: 675px) { 
+    .mintBg { 
+        height: 100%;
+        flex-direction: column;
+        padding-bottom: 150px;
+    }
+    .mint__imgWrapper { 
+        height: 40%;
+        padding-bottom: 15px;
+    }
+
+    .mint__logo { 
+        padding-top: 0px;
+        object-fit: contain;
+        height: 250px;
+    }
+
+    .mint__text { 
+        line-height: 30px;
+        font-size: 1rem;
+    }
+
+    .mint__button { 
+        font-size: 1.6rem;
+    }
+
+    .mint__signIn-input input { 
+        margin-bottom: 20px;
+    }
+}
+

@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import './App.css';
 import Navbar from './components/Navbar';
-import MintHome from './components/MintHome';
-import Welcome from './components/Welcome'
+import Home from './components/Home';
 import About from './components/About'
+import Images from './components/Images.js'
 import Roadmap from './components/Roadmap'
 import Team from './components/Team'
 import Info from './components/Info'
@@ -19,12 +19,11 @@ class App extends Component {
         <Router>
           <Switch />
           <Navbar />
-          <MintHome />
-          <Welcome />
+          <Home />
           <About />
+          <Images />
           <Roadmap />
           <Team />
-          <Info />
           <Footer />
         </Router> 
       </>
