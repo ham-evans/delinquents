@@ -18,12 +18,12 @@ export default class Footer extends Component {
 
           <ul className="footer-menu">
             <li className="footer-item">
-              <Link className="footer-links" to={{ pathname: "https://twitter.com/nftgiraffes" }} target="_blank" >
+              <Link className="footer-links" to={{ pathname: "https://twitter.com/delinkuents_nft" }} target="_blank" >
                 <FontAwesomeIcon icon={faTwitter} />
               </Link>
             </li>
             <li className="footer-item">
-              <Link className="footer-links" to={{ pathname: "https://discord.gg/32mr9hy6ZV" }} target="_blank" >
+              <Link className="footer-links" to={{ pathname: "https://discord.gg/HfHMJP7fpQ" }} target="_blank" >
                 <FontAwesomeIcon icon={faDiscord} />
               </Link>
             </li>
