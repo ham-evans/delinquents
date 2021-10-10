@@ -1,6 +1,7 @@
 .roadmap {
   overflow-x: visible;
   background-color: #191c1f;
+  background-image: url('../images/asfalt-light.png');
   padding-bottom: 100px;
   color: #fff;
 }

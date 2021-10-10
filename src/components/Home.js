@@ -320,7 +320,6 @@ export default function Home () {
     return (
         <div>
             {mintPage ? returnMint : returnInitial}
-            
         </div>
         
         

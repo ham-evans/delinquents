@@ -21,23 +21,6 @@ export default function Team () {
             </div>
             <div className="team__imgContainer">
                 <div className="team__group">
-                    <div className="team__imgIndividual">
-                        <img src={squeebo} alt="Developer Squeebo"/>
-                        <figcaption className="caption">Squeebo</figcaption>
-                        <p>Contract Developer</p>
-                    </div>
-                    <div className="team__imgIndividual">
-                        <img src={apollo21} alt="Developer Apollo 21"/>
-                        <figcaption className="caption">Apollo 21</figcaption>
-                        <p>Web Developer</p>
-                    </div>
-                    <div className="team__imgIndividual">
-                        <img src={goldenx} alt="Developer GoldenX"/>
-                        <figcaption className="caption">GoldenX</figcaption>
-                        <p>Developer</p>
-                    </div>
-                </div>
-                <div className="team__group">
                     <div className="team__imgIndividual" onClick={onClick1}>
                             <img src={shiltoshi} alt="Developer" />
                             <figcaption className="caption">Shiltoshi</figcaption>
@@ -61,6 +44,23 @@ export default function Team () {
                             {showResults3 ? <p className="team__aboutTitle">About:</p> : <p className="team__aboutTitle active">About:</p>}
                             {showResults3 ? <p>I’m a business builder and a success junkie at heart. I love basketball, even though I'm built like Frodo Baggins I can drain 3’s like your girl drains your bank account. NBA Top Shot got me started in NFTs and Shiltoshi got me to love jpegs of animals. I probably have more children than you have NFTs.</p> : <p></p>}
                         </div>
+                    </div>
+                </div>
+                <div className="team__group">
+                    <div className="team__imgIndividual">
+                        <img src={squeebo} alt="Developer Squeebo"/>
+                        <figcaption className="caption">Squeebo</figcaption>
+                        <p>Contract Developer</p>
+                    </div>
+                    <div className="team__imgIndividual">
+                        <img src={apollo21} alt="Developer Apollo 21"/>
+                        <figcaption className="caption">Apollo 21</figcaption>
+                        <p>Web Developer</p>
+                    </div>
+                    <div className="team__imgIndividual">
+                        <img src={goldenx} alt="Developer GoldenX"/>
+                        <figcaption className="caption">GoldenX</figcaption>
+                        <p>Developer</p>
                     </div>
                 </div>
             </div>

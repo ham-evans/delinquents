@@ -2,14 +2,11 @@
     height: 100%;
     width: 100vw;
     background: #191c1f;
+    background-image: url('../images/asfalt-light.png');
 }
 
 .images__wrapper { 
     display: flex;
     flex-direction: row;
     margin: 100px auto;
-}
-
-.images__imgIndividual { 
-
 }

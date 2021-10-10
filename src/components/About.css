@@ -10,6 +10,8 @@
     background-color: #191c1f;
     display: flex;
     flex-direction: row;
+    background-image: url('../images/asfalt-light.png');
+
 }
 
 .about__container { 

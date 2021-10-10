@@ -12,6 +12,8 @@
     font-weight: 600;
     overflow-x: hidden;
     font-family: 'Akronim', cursive;
+    font-weight: 500;
+    background-image: url('../images/asfalt-light.png');
   }
 
   .nav__imgLogo { 
