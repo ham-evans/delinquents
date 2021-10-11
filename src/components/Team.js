@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import "./Team.css";
-import apollo21 from '../images/sharkTransparent.png'
-import squeebo from '../images/sharkTransparent.png'
-import goldenx from '../images/sharkTransparent.png'
+import apollo21 from '../images/Apollo.png'
+import squeebo from '../images/SqueeboTeam.png'
+import goldenx from '../images/Kierk.png'
 import shiltoshi from '../images/Shiltoshibio.png'
 import ty from '../images/TYbio.png'
 import Inkster from '../images/Inkster_66Bio.png'

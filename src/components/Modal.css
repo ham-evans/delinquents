@@ -24,6 +24,7 @@
     align-items: center;
     text-align:center;
     background-color: #191C1F;
+    background-image: url('../images/asfalt-light.png');
     border: 3px solid #fff;
     border-radius: 40px;
 }
