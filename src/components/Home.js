@@ -3,7 +3,7 @@ import { useWeb3React } from '@web3-react/core';
 import { WalletConnectConnector } from "@web3-react/walletconnect-connector";
 import { WalletLinkConnector }    from "@web3-react/walletlink-connector";
 
-import ContractAbi from '../artifacts/contracts/Contract.sol/FoundersCoin.json';
+import ContractAbi from '../artifacts/contracts/Contract.sol/FoundersCoinMainnet.json';
 import Modal from './Modal.js';
 import './Home.css'
 import './Mint.css'
@@ -14,23 +14,23 @@ import animationGif from '../images/Animation_GIF_Silver.gif'
 
 import EthereumSession from '../lib/eth-session.js';
 
-/*
+
 const mainnetConfig = {
-    'CONTRACT': '0xccb754b5d99f41397b13bec72e0015d7bb2ab63e',
+    'CONTRACT': '0x219f7208EB298bF52db2b796fB79B73961ebF61E',
     'CHAIN_ID':  1,
     'RPC_URL':   'https://mainnet.infura.io/v3/be0168ea214b4489b69e0787ca0d13e0',
-    'ABI':       ContractAbi.abi
+    'ABI':       ContractAbi
 }
-*/
 
+/*
 const rinkebyConfig = {
     'CONTRACT': '0x8b4300209B534d69c42A02c31576b189AF61A41F',
     'CHAIN_ID':  4,
     'RPC_URL':   'https://rinkeby.infura.io/v3/be0168ea214b4489b69e0787ca0d13e0',
     'ABI':       ContractAbi.abi
-}
+}*/
 
-const config = rinkebyConfig;
+const config = mainnetConfig;
 
 const CONNECTORS = {};
 CONNECTORS.Walletlink = new WalletLinkConnector({
@@ -55,7 +55,7 @@ export default function Home () {
     const onClick = () => setMintPage(!mintPage)
 
     const [contractWithSigner, setContractWithSigner] = useState(null);
-    const [is_locked, togglePause] = useState(true);
+    const [isLocked, togglePause] = useState(true);
     const [tokenPrice, setTokenPrice] = useState(0);
     const [howManyTokens, setHowManyTokens] = useState(6)
     const [totalSupply, setTotalSupply] = useState(0);
@@ -163,7 +163,6 @@ export default function Home () {
             }
         }
         catch( error ){
-            alert( error );
             if (error.code === 4001) {
                 setErrorMessage("Sign in to mint Founders Coins!")
                 toggleModal(true);
@@ -180,12 +179,11 @@ export default function Home () {
 
     async function loadContractData () {
         const contract = ethereumSession.contract;
-        const signer = ethereumSession.ethersProvider.getSigner()
-
+        const signer = ethereumSession.ethersProvider.getSigner();
         const contractWithSigner = contract.connect(signer)
-        const salebool = await contract.is_locked();
+        const salebool = await contract.isLocked();
         const tokenPrice = await contract.price();
-        const totalSupplyInit = await contract.totalSupply()
+        const totalSupplyInit = await contract.totalSupply();
         
         setContractWithSigner(contractWithSigner);
         togglePause(salebool);
@@ -200,7 +198,7 @@ export default function Home () {
             return
         }
 
-        if( is_locked ){
+        if( isLocked ){
             setErrorMessage("Sale is not active yet.  Try again later!")
             toggleModal(true);
             return;
@@ -291,7 +289,7 @@ export default function Home () {
                                     <div className="mint__buttonWrapper" >
                                         {signedIn ? <button className="mint__button" onClick={() => signOut()}>Wallet Connected<br /> Click to Sign Out</button> : <button className="mint__button" onClick={() => signIn()}>Connect Wallet</button>}
                                     </div>
-                                    <p className="mint__text">Number of Founders Coins Minted: {totalSupply} / 2000<br />Input Number of Founder Coins to Mint:</p>
+                                    <p className="mint__text">Number of Founders Coins Minted: {totalSupply} / 2000<br />Input Number of Founder Coins to Mint (0.04 ETH):</p>
                                     <div className={signedIn ? "mint__signIn-input" : "mint__signIn-input-false"}>
                                         <input 
                                             type="number" 
