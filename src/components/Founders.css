@@ -1,5 +1,6 @@
 
-.mintBg { 
+.foundersBg { 
+    height: 80vh;
     width: auto;
     margin: 0;
     background-color: #191C1F;
@@ -9,86 +10,54 @@
     z-index: 1;
     display: flex;
     flex-direction: row;
-    padding-bottom: 50px;
+    padding-bottom: 80px;
     color: #fff;
     background-image: url('../images/asfalt-light.png');
+    
 }
 
-.mint__total { 
-    height: 90vh;
-    background-color: #191C1F;
-    background-image: url('../images/asfalt-light.png');
-    color: #fff;
-    display: flex;
-    flex-direction: column;
-    margin: auto;
-    text-align: center;
-}
-
-.mint__scroll { 
-    display: flex;
-    flex-direction: column;
-    margin: auto;
-    color: #fff;
-    overflow: visible;
-    height: 13vh;
-    padding-bottom: 40px;
-    font-size: 1.3rem;
-}
-
-.mint__scroll svg { 
-    margin: auto;
-    text-align: center;
-    font-size: 2.5rem;
-}
-
-.mint__imgWrapper { 
+.founders__imgWrapper { 
     margin: auto 6vw;
     text-align: center;
     height: 90%;
-    width: 30vw;
+    padding-bottom: 50px;
     z-index: 2;
     overflow: visible;
 }
 
-.mint__logo { 
+.founders__logo { 
+    padding-top: 80px;
     object-fit: contain;
     height: 90%;
 }
 
-.mint__textWrapper { 
+.founders__textWrapper { 
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    overflow: visible;
-}
-
-.mint__textContainer { 
-    display: flex;
-    flex-direction: column;
     margin:auto;
     overflow: visible;
+    color: #fff;
 }
 
-.mint__text {
-    line-height: 40px;
+.founders__text {
+    line-height: 50px;
     font-size: 1.4rem;
 }
 
-.mint__buttonWrapper { 
+.founders__buttonWrapper { 
     transition: all .35s ease;
     z-index: 4;
     overflow: visible;
-    margin-bottom: 10px;
 }
 
-.mint__buttonWrapper:hover { 
+.founders__buttonWrapper:hover { 
     transform: scale(1.05);
     cursor: pointer;
 }
 
-.mint__button { 
+.founders__button { 
     background-color: rgba(25,28,31, 0.7);
     padding: 15px 50px;
     padding-bottom: 10px;
@@ -100,11 +69,11 @@
     font-weight: 500;
 }
 
-.mint__button:hover {
+.founders__button:hover {
     cursor: pointer;
 }
 
-.mint__signIn-input input { 
+.founders__signIn-input input { 
     background-color: rgba(25,28,31, 0.7);
     padding: 6px 30px;
     padding-left: 35px;
@@ -116,7 +85,7 @@
     margin-bottom: 35px;
 }
 
-.mint__signIn-input-false input { 
+.founders__signIn-input-false input { 
     background-color: rgba(25,28,31, 0.7);
     padding: 6px 30px;
     padding-left: 35px;
@@ -129,35 +98,32 @@
 }
 
 @media screen and (max-width: 1150px) { 
-    .mintBg { 
+    .foundersBg { 
         height: 100%;
         flex-direction: column;
         padding-bottom: 150px;
     }
-
-    .mint__imgWrapper { 
+    .founders__imgWrapper { 
         height: 40%;
         padding-bottom: 15px;
-        width: 100%;
-        margin: auto;
     }
 
-    .mint__logo { 
+    .founders__logo { 
         padding-top: 0px;
         object-fit: contain;
         height: 250px;
     }
 
-    .mint__text { 
+    .founders__text { 
         line-height: 30px;
         font-size: 1rem;
     }
 
-    .mint__button { 
+    .founders__button { 
         font-size: 1.6rem;
     }
 
-    .mint__signIn-input input { 
+    .founders__signIn-input input { 
         margin-bottom: 20px;
     }
 }

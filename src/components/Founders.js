@@ -1,35 +1,24 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import { useWeb3React } from '@web3-react/core';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faAngleDoubleDown } from '@fortawesome/free-solid-svg-icons'
 import { WalletConnectConnector } from "@web3-react/walletconnect-connector";
 import { WalletLinkConnector }    from "@web3-react/walletlink-connector";
 
-import ContractAbi from '../artifacts/contracts/delinkuentsContract.json';
-import FoundersContractAbi from '../artifacts/contracts/Contract.sol/FoundersCoinMainnet.json';
+import ContractAbi from '../artifacts/contracts/Contract.sol/FoundersCoinMainnet.json';
 import Modal from './Modal.js';
-import './Home.css'
-import './Mint.css'
+import './Founders.css'
 
 import { ethers } from 'ethers';
 import logo from '../images/logo.png'
-import sharkTransparent from '../images/sharkTransparent.png'
+import animationGif from '../images/Animation_GIF_Silver.gif'
 
 import EthereumSession from '../lib/eth-session.js';
 
 
 const mainnetConfig = {
-    'CONTRACT': '0x2c5fA08d2C67938513A3d09820eF32c1288F9207',
-    'CHAIN_ID':  1,
-    'RPC_URL':   'https://mainnet.infura.io/v3/be0168ea214b4489b69e0787ca0d13e0',
-    'ABI':       ContractAbi
-}
-
-const mainnetFoundersConfig = {
     'CONTRACT': '0x219f7208EB298bF52db2b796fB79B73961ebF61E',
     'CHAIN_ID':  1,
     'RPC_URL':   'https://mainnet.infura.io/v3/be0168ea214b4489b69e0787ca0d13e0',
-    'ABI':       FoundersContractAbi
+    'ABI':       ContractAbi
 }
 
 /*
@@ -54,26 +43,21 @@ CONNECTORS.WalletConnect = new WalletConnectConnector({
     rpc: config.RPC_URL,
 });
 
-export default function Home () { 
+export default function Founders () { 
     const context = useWeb3React();
     
-    const [mintPage, setMintPage] = useState(false)
     const [walletAddress, setWalletAddress] = useState(null);
 
     const signedIn = !!walletAddress;
 
-    const onClick = () => setMintPage(!mintPage)
-
     const [contractWithSigner, setContractWithSigner] = useState(null);
     const [isLocked, togglePause] = useState(true);
     const [tokenPrice, setTokenPrice] = useState(0);
-    const [howManyTokens, setHowManyTokens] = useState(20)
+    const [howManyTokens, setHowManyTokens] = useState(6)
     const [totalSupply, setTotalSupply] = useState(0);
 
     const [modalShown, toggleModal] = useState(false);
     const [errorMessage, setErrorMessage] = useState("");
-
-    const [points, setPoints] = useState(0)
 
     const ethereumSession = useMemo(() => {
         if( window.ethereum ){
@@ -81,20 +65,6 @@ export default function Home () {
                 chain:           EthereumSession.COMMON_CHAINS[ config.CHAIN_ID ],
                 contractAddress: config.CONTRACT,
                 contractABI:     config.ABI
-            });
-            return session;
-        }
-        else{
-            return null;
-        }
-    },[]);
-
-    const ethereumFoundersSession = useMemo(() => {
-        if( window.ethereum ){
-            const session = new EthereumSession({
-                chain:           EthereumSession.COMMON_CHAINS[ mainnetFoundersConfig.CHAIN_ID ],
-                contractAddress: mainnetFoundersConfig.CONTRACT,
-                contractABI:     mainnetFoundersConfig.ABI
             });
             return session;
         }
@@ -119,7 +89,6 @@ export default function Home () {
                         debugger
                     }
                 })
-            ethereumFoundersSession.connectEthers()
         }
     }, []);
 
@@ -185,9 +154,8 @@ export default function Home () {
             }
 
             if (ethereumSession.hasAccounts()) {
-                setWalletAddress(ethereumSession.wallet.accounts[0]);
-                checkPoints (ethereumSession.wallet.accounts[0]);
-                await loadContractData();
+                setWalletAddress(ethereumSession.wallet.accounts[0])
+                await loadContractData()
             }
         }
         catch( error ){
@@ -272,13 +240,6 @@ export default function Home () {
         }
     }
 
-    async function checkPoints (address) {
-        const foundersContract = ethereumFoundersSession.contract;
-        if (foundersContract && address) {
-            setPoints((await foundersContract.ownerPoints(address)).toString()); 
-        }
-    }
-
     const setMintingSuccess = (howManyTokens) => {
         setErrorMessage("Congrats on minting " + howManyTokens + " Founders Coins!!");
         toggleModal(true);
@@ -295,8 +256,8 @@ export default function Home () {
     }
 
     function checkHowMany (newNumber) { 
-        if (newNumber > 20) {
-            setHowManyTokens(20)
+        if (newNumber > 6) {
+            setHowManyTokens(6)
         } else if (newNumber < 1) { 
             setHowManyTokens("")
         } else { 
@@ -304,72 +265,30 @@ export default function Home () {
         }
     }
 
-    const returnInitial = <div className="home" id="#home">
-                            <div className="homeBg">
-                                <div className="home__imgWrapper">
-                                    <img className="home__logo" src={logo} alt="Logo"/>
+    const returnMint = <div className="founders" >
+                            <div className="foundersBg">
+                                <div className="founders__imgWrapper">
+                                    <img className="founders__logo" src={animationGif} alt="Logo"/>
                                 </div>
-                                <div className="home__buttonWrapper" onClick={onClick}> 
-                                    <button className="home__button">MINT A DELinkUENT</button>
-                                </div>
-                            </div>
-                        </div>;
-
-    const textEth = <div className="mint__textContainer">
-                        <div className="mint__textWrapper"> 
-                            <div className="mint__buttonWrapper" >
-                                {signedIn ? <button className="mint__button" onClick={() => signOut()}>Wallet Connected To Crypto Delinkuents<br /> Click to Sign Out</button> : <button className="mint__button" onClick={() => signIn()}>Connect Wallet To Crypto Delinkuents</button>}
-                            </div>
-                        </div>
-                        <p className="mint__text">Number of Crypto Delinkuents Minted: {totalSupply} / 2000<br />Input Number of Crypto Delinkuents to Mint (0.06 ETH):</p>
-                        <div className={signedIn ? "mint__signIn-input" : "mint__signIn-input-false"}>
-                            <input 
-                                type="number" 
-                                min="1"
-                                max={20}
-                                value={howManyTokens}
-                                onChange={ e => checkHowMany(e.target.value) }
-                                name="" 
-                            />
-                        </div>
-                        <div className="mint__buttonWrapper">
-                            {howManyTokens > 0 ? <button className="mint__button" onClick={() => mint()}>MINT {howManyTokens} CRYPTO DELinkUENT(S)</button> : <button className="mint__button" onClick={() => mintOne()}>MINT {howManyTokens} CRYPTO DELinkUENT(S)</button>}
-                        </div>
-                    </div>;
-
-    const textPoint = <div className="mint__textContainer">
-                        <div className="mint__textWrapper"> 
-                            <div className="mint__buttonWrapper" >
-                                {signedIn ? <button className="mint__button" onClick={() => signOut()}>Wallet Connected To Crypto Delinkuents<br /> Click to Sign Out</button> : <button className="mint__button" onClick={() => signIn()}>Connect Wallet To Crypto Delinkuents</button>}
-                            </div>
-                        </div>
-                        <p className="mint__text">Number of Crypto Delinkuents Minted: {totalSupply} / 2000<br />Input Number of Crypto Delinkuents to Mint (1 Founders Coin Point):</p>
-                        <div className={signedIn ? "mint__signIn-input" : "mint__signIn-input-false"}>
-                            <input 
-                                type="number" 
-                                min="1"
-                                max={20}
-                                value={howManyTokens}
-                                onChange={ e => checkHowMany(e.target.value) }
-                                name="" 
-                            />
-                        </div>
-                        <div className="mint__buttonWrapper">
-                            {howManyTokens > 0 ? <button className="mint__button" onClick={() => mint()}>MINT {howManyTokens} CRYPTO DELinkUENT(S) WITH POINT(S)</button> : <button className="mint__button" onClick={() => mintOne()}>MINT {howManyTokens} CRYPTO DELinkUENT(S)</button>}
-                        </div>
-                    </div>;
-
-    const returnMint = <div className="mint" id="#home">
-                            <div className="mint__total">
-                                <div className="mintBg">
-                                    <div className="mint__imgWrapper">
-                                        <img className="mint__logo" src={sharkTransparent} alt="Logo"/>
+                                <div className="founders__textWrapper"> 
+                                    <div className="founders__buttonWrapper" >
+                                        {signedIn ? <button className="founders__button" onClick={() => signOut()}>Wallet Connected To Founders Coins<br /> Click to Sign Out</button> : <button className="founders__button" onClick={() => signIn()}>Connect Wallet To Founders Coins</button>}
                                     </div>
-                                    {points > 0 ? textPoint : textEth}
-                                </div>
-                                <div className="mint__scroll">
-                                    <p>Scroll Down for Founders Coin Minting!</p>
-                                    <FontAwesomeIcon icon={faAngleDoubleDown} />
+                                    <p className="founders__text">Number of Founders Coins Minted: {totalSupply} / 2000<br />Input Number of Founder Coins to Mint (0.04 ETH):</p>
+                                    <div className={signedIn ? "founders__signIn-input" : "founders__signIn-input-false"}>
+                                        <input 
+                                            type="number" 
+                                            min="1"
+                                            max={10}
+                                            value={howManyTokens}
+                                            onChange={ e => checkHowMany(e.target.value) }
+                                            name="" 
+                                        />
+                                    </div>
+                                    <div className="founders__buttonWrapper">
+                                        {howManyTokens > 0 ? <button className="founders__button" onClick={() => mint()}>MINT {howManyTokens} FOUNDERS COIN(S)</button> : <button className="mint__button" onClick={() => mintOne()}>MINT {howManyTokens} FOUNDERS COINS(S)</button>}
+                                        
+                                    </div>
                                 </div>
                             </div>
                             <Modal
@@ -382,10 +301,8 @@ export default function Home () {
                         </div>
 
     return (
-        <div>
-            {mintPage ? returnMint : returnInitial}
+        <div id="#founder">
+            { returnMint }
         </div>
-        
-        
     );
 }
