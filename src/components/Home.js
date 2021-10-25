@@ -272,6 +272,56 @@ export default function Home () {
         }
     }
 
+    async function mintPoints () { 
+        if (!signedIn || !contractWithSigner){
+            setErrorMessage("Please connect wallet or reload the page!")
+            toggleModal(true);
+            return
+        }
+
+        if( isLocked ){
+            setErrorMessage("Sale is not active yet.  Try again later!")
+            toggleModal(true);
+            return;
+        }
+
+        if( !(await ethereumSession.connectAccounts( true )) ){
+            setErrorMessage("Please unlock your wallet and select an account.")
+            toggleModal(true);
+            return;
+        }
+
+        if( !(await ethereumSession.connectChain( true )) ){
+            setErrorMessage(`Please open your wallet and select ${ethereumSession.chain.name}.`);
+            toggleModal(true);
+            return;
+        }
+
+        if ( ethereumSession.chain.hex !== await ethereumSession.getWalletChainID() ){
+            window.location.reload();
+            return;
+        }
+
+        //connected
+        try{
+            const overrides = {
+                from: walletAddress, 
+            }
+
+            const gasBN = await ethereumSession.contract.estimateGas.usePoints(howManyTokens, overrides);
+            const finalGasBN = gasBN.mul( ethers.BigNumber.from(11) ).div( ethers.BigNumber.from(10) );
+            overrides.gasLimit = finalGasBN.toString();
+
+            const txn = await contractWithSigner.usePoints(howManyTokens, overrides)
+            await txn.wait();
+            setMintingSuccess(howManyTokens)
+        } catch (error) {
+            if (error.error) {
+                setMintingError(error.error.message)
+            } 
+        }
+    }
+
     async function checkPoints (address) {
         const foundersContract = ethereumFoundersSession.contract;
         if (foundersContract && address) {
@@ -321,7 +371,7 @@ export default function Home () {
                                 {signedIn ? <button className="mint__button" onClick={() => signOut()}>Wallet Connected To Crypto Delinkuents<br /> Click to Sign Out</button> : <button className="mint__button" onClick={() => signIn()}>Connect Wallet To Crypto Delinkuents</button>}
                             </div>
                         </div>
-                        <p className="mint__text">Number of Crypto Delinkuents Minted: {totalSupply} / 6666<br />Input Number of Crypto Delinkuents to Mint (0.06 ETH):</p>
+                        <p className="mint__text">Number of Crypto Delinkuents Minted: {totalSupply} / 6666<br />Input Number of Crypto Delinkuents to Mint <br />(0.06 ETH or 1 Founders Point):</p>
                         <div className={signedIn ? "mint__signIn-input" : "mint__signIn-input-false"}>
                             <input 
                                 type="number" 
@@ -336,7 +386,7 @@ export default function Home () {
                             {howManyTokens > 0 ? <button className="mint__button_mint" onClick={() => mint()}>MINT CRYPTO DELinkUENT(S) WITH ETH</button> : <button className="mint__button_mint" onClick={() => mintOne()}>MINT {howManyTokens} CRYPTO DELinkUENT(S)</button>}
                         </div>
                         <div className="mint__buttonWrapper">
-                            {howManyTokens > 0 ? <button className="mint__button_mint" onClick={() => mint()}>MINT CRYPTO DELinkUENT(S) WITH FOUNDERS POINT</button> : <button className="mint__button_mint" onClick={() => mintOne()}>MINT {howManyTokens} CRYPTO DELinkUENT(S)</button>}
+                            {howManyTokens > 0 ? <button className="mint__button_mint" onClick={() => mintPoints()}>MINT CRYPTO DELinkUENT(S) WITH FOUNDERS POINT</button> : <button className="mint__button_mint" onClick={() => mintOne()}>MINT {howManyTokens} CRYPTO DELinkUENT(S)</button>}
                         </div>
                     </div>;
 
