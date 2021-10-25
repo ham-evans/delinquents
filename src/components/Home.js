@@ -275,7 +275,7 @@ export default function Home () {
     async function checkPoints (address) {
         const foundersContract = ethereumFoundersSession.contract;
         if (foundersContract && address) {
-            setPoints((await foundersContract.ownerPoints(address)).toString()); 
+            setPoints(parseInt((await foundersContract.ownerPoints(address)).toString(), 10)); 
         }
     }
 
