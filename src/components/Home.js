@@ -321,7 +321,7 @@ export default function Home () {
                                 {signedIn ? <button className="mint__button" onClick={() => signOut()}>Wallet Connected To Crypto Delinkuents<br /> Click to Sign Out</button> : <button className="mint__button" onClick={() => signIn()}>Connect Wallet To Crypto Delinkuents</button>}
                             </div>
                         </div>
-                        <p className="mint__text">Number of Crypto Delinkuents Minted: {totalSupply} / 2000<br />Input Number of Crypto Delinkuents to Mint (0.06 ETH):</p>
+                        <p className="mint__text">Number of Crypto Delinkuents Minted: {totalSupply} / 6666<br />Input Number of Crypto Delinkuents to Mint (0.06 ETH):</p>
                         <div className={signedIn ? "mint__signIn-input" : "mint__signIn-input-false"}>
                             <input 
                                 type="number" 
@@ -333,29 +333,10 @@ export default function Home () {
                             />
                         </div>
                         <div className="mint__buttonWrapper">
-                            {howManyTokens > 0 ? <button className="mint__button" onClick={() => mint()}>MINT {howManyTokens} CRYPTO DELinkUENT(S)</button> : <button className="mint__button" onClick={() => mintOne()}>MINT {howManyTokens} CRYPTO DELinkUENT(S)</button>}
-                        </div>
-                    </div>;
-
-    const textPoint = <div className="mint__textContainer">
-                        <div className="mint__textWrapper"> 
-                            <div className="mint__buttonWrapper" >
-                                {signedIn ? <button className="mint__button" onClick={() => signOut()}>Wallet Connected To Crypto Delinkuents<br /> Click to Sign Out</button> : <button className="mint__button" onClick={() => signIn()}>Connect Wallet To Crypto Delinkuents</button>}
-                            </div>
-                        </div>
-                        <p className="mint__text">Number of Crypto Delinkuents Minted: {totalSupply} / 2000<br />Input Number of Crypto Delinkuents to Mint (1 Founders Coin Point):</p>
-                        <div className={signedIn ? "mint__signIn-input" : "mint__signIn-input-false"}>
-                            <input 
-                                type="number" 
-                                min="1"
-                                max={20}
-                                value={howManyTokens}
-                                onChange={ e => checkHowMany(e.target.value) }
-                                name="" 
-                            />
+                            {howManyTokens > 0 ? <button className="mint__button_mint" onClick={() => mint()}>MINT CRYPTO DELinkUENT(S) WITH ETH</button> : <button className="mint__button_mint" onClick={() => mintOne()}>MINT {howManyTokens} CRYPTO DELinkUENT(S)</button>}
                         </div>
                         <div className="mint__buttonWrapper">
-                            {howManyTokens > 0 ? <button className="mint__button" onClick={() => mint()}>MINT {howManyTokens} CRYPTO DELinkUENT(S) WITH POINT(S)</button> : <button className="mint__button" onClick={() => mintOne()}>MINT {howManyTokens} CRYPTO DELinkUENT(S)</button>}
+                            {howManyTokens > 0 ? <button className="mint__button_mint" onClick={() => mint()}>MINT CRYPTO DELinkUENT(S) WITH FOUNDERS POINT</button> : <button className="mint__button_mint" onClick={() => mintOne()}>MINT {howManyTokens} CRYPTO DELinkUENT(S)</button>}
                         </div>
                     </div>;
 
@@ -365,7 +346,7 @@ export default function Home () {
                                     <div className="mint__imgWrapper">
                                         <img className="mint__logo" src={sharkTransparent} alt="Logo"/>
                                     </div>
-                                    {points > 0 ? textPoint : textEth}
+                                    {textEth}
                                 </div>
                                 <div className="mint__scroll">
                                     <p>Scroll Down for Founders Coin Minting!</p>
