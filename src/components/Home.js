@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleDoubleDown } from '@fortawesome/free-solid-svg-icons'
 import { WalletConnectConnector } from "@web3-react/walletconnect-connector";
 import { WalletLinkConnector }    from "@web3-react/walletlink-connector";
+import Founders from './Founders'
 
 import ContractAbi from '../artifacts/contracts/newDelinkuents.json';
 import FoundersContractAbi from '../artifacts/contracts/Contract.sol/newFounders.json';
@@ -403,6 +404,7 @@ export default function Home () {
                                     <FontAwesomeIcon icon={faAngleDoubleDown} />
                                 </div>
                             </div>
+                            <Founders />
                             <Modal
                                 shown={modalShown}
                                 close={() => {

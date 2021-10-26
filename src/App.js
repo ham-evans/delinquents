@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import './App.css';
 import Navbar from './components/Navbar';
 import Home from './components/Home';
-import Founders from './components/Founders'
 import About from './components/About'
 import Images from './components/Images.js'
 import Roadmap from './components/Roadmap'
@@ -20,7 +19,7 @@ class App extends Component {
           <Switch />
           <Navbar />
           <Home />
-          <Founders />
+          
           <About />
           <Images />
           <Roadmap />
