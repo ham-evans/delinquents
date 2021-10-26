@@ -5,8 +5,8 @@ import { faAngleDoubleDown } from '@fortawesome/free-solid-svg-icons'
 import { WalletConnectConnector } from "@web3-react/walletconnect-connector";
 import { WalletLinkConnector }    from "@web3-react/walletlink-connector";
 
-import ContractAbi from '../artifacts/contracts/delinkuentsContract.json';
-import FoundersContractAbi from '../artifacts/contracts/Contract.sol/FoundersCoinMainnet.json';
+import ContractAbi from '../artifacts/contracts/newDelinkuents.json';
+import FoundersContractAbi from '../artifacts/contracts/Contract.sol/newFounders.json';
 import Modal from './Modal.js';
 import './Home.css'
 import './Mint.css'
@@ -19,14 +19,14 @@ import EthereumSession from '../lib/eth-session.js';
 
 
 const mainnetConfig = {
-    'CONTRACT': '0x2c5fA08d2C67938513A3d09820eF32c1288F9207',
+    'CONTRACT': '0x756a2381b8921d4fE852A3036D77CD5C9b263004',
     'CHAIN_ID':  1,
     'RPC_URL':   'https://mainnet.infura.io/v3/be0168ea214b4489b69e0787ca0d13e0',
     'ABI':       ContractAbi
 }
 
 const mainnetFoundersConfig = {
-    'CONTRACT': '0x219f7208EB298bF52db2b796fB79B73961ebF61E',
+    'CONTRACT': '0x835e49da27Fc0E10dAC8Ecd2B84039011Fd7baCD',
     'CHAIN_ID':  1,
     'RPC_URL':   'https://mainnet.infura.io/v3/be0168ea214b4489b69e0787ca0d13e0',
     'ABI':       FoundersContractAbi

@@ -3,7 +3,7 @@ import { useWeb3React } from '@web3-react/core';
 import { WalletConnectConnector } from "@web3-react/walletconnect-connector";
 import { WalletLinkConnector }    from "@web3-react/walletlink-connector";
 
-import ContractAbi from '../artifacts/contracts/Contract.sol/FoundersCoinMainnet.json';
+import ContractAbi from '../artifacts/contracts/Contract.sol/newFounders.json';
 import Modal from './Modal.js';
 import './Founders.css'
 
@@ -15,7 +15,7 @@ import EthereumSession from '../lib/eth-session.js';
 
 
 const mainnetConfig = {
-    'CONTRACT': '0x219f7208EB298bF52db2b796fB79B73961ebF61E',
+    'CONTRACT': '0x835e49da27Fc0E10dAC8Ecd2B84039011Fd7baCD',
     'CHAIN_ID':  1,
     'RPC_URL':   'https://mainnet.infura.io/v3/be0168ea214b4489b69e0787ca0d13e0',
     'ABI':       ContractAbi

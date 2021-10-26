@@ -9,7 +9,6 @@
     z-index: 1;
     display: flex;
     flex-direction: row;
-    padding-bottom: 50px;
     color: #fff;
     background-image: url('../images/asfalt-light.png');
 }
@@ -69,7 +68,6 @@
     flex-direction: column;
     margin:auto;
     overflow: visible;
-    padding-top: 50px;
 }
 
 .mint__text {
@@ -147,10 +145,20 @@
 }
 
 @media screen and (max-width: 1150px) { 
+    .mint__textContainer { 
+        height: 100%;
+    }
+
+    .mint__textWrapper { 
+        height: 100%;
+    }
+
+    .mint__total { 
+        height: 100%;
+    }
     .mintBg { 
         height: 100%;
         flex-direction: column;
-        padding-bottom: 150px;
     }
 
     .mint__imgWrapper { 
@@ -158,6 +166,12 @@
         padding-bottom: 15px;
         width: 100%;
         margin: auto;
+    }
+
+    .mint__scroll p {
+        height: 100%;
+        margin: 0px auto;
+        margin-top: 15px;
     }
 
     .mint__logo { 
@@ -173,10 +187,16 @@
 
     .mint__button { 
         font-size: 1.6rem;
+        padding: 15px 20px;
     }
 
     .mint__signIn-input input { 
         margin-bottom: 20px;
+    }
+
+    .mint__button_mint {
+        font-size: 1.6rem;
+        padding: 15px 30px;
     }
 }
 
