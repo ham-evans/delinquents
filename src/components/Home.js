@@ -28,7 +28,7 @@ const mainnetConfig = {
 
 const mainnetFoundersConfig = {
     'CONTRACT': '0x58F40481a2388f8e6b36a853C3A7f31D55feAAeA',
-    'CHAIN_ID':  1,
+    'CHAIN_ID':  137,
     'RPC_URL':   'https://polygon-mainnet.infura.io/v3/ae53d9d72c71435baa7af541d3f9c7fd',
     'ABI':       FoundersContractAbi
 }
