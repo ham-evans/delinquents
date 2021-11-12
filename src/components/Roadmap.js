@@ -49,10 +49,11 @@ export default function Roadmap () {
                     <div className="roadmap__individual" onClick={onClick3}>
                         <h4 className={showResults3 ? "roadmap__titleText  active" : "roadmap__titleText"}>Heists</h4>
                         <div className={showResults3 ? "roadmap__individualText  active" : "roadmap__individualText"}>
-                            <p>Heists are a fun and engaging activity to allow the Crypto Delinkuents team to share profits from secondary market sales.</p>
+                            <p>The Crypto Delinkquents team wants to build a continuous relationship with our community through fun giveaway events called Heists.</p>
                             <p>Heists will be on a predetermined time frame TBD.</p>
-                            <p>Each heist will have unique parameters for eligibility. Examples of such parameters could be, but are not limited to: holding a specific character, number of characters, or race.</p>
-                            <p>A snapshot of holders will be taken at the end of the heist and will be used to distribute profits. Heists will take 38% of the commission earned from secondary market sales and distribute it in ETH to eligible holders of the Crypto Delinkuents project.</p>
+                            <p>Each Heist will have unique parameters for eligibility. Examples of such parameters could be, but are not limited to: holding a specific character, number of characters, or trait.</p>
+                            <p>At the end of each Heist, a snapshot of eligible participants will be used to award the prize pool.  Each Heist prize pool will consist of 38% of the commission earned from secondary market sales in the set time frame and will be given out in ETH to the eligible winners of the Heist.</p>
+                            <p>Heists are not intended to be investment payouts and do not guarantee rewards for involvement in the Crypto Delinkuents project.</p>
                         </div>
                     </div>
                     <div className="roadmap__individual" onClick={onClick4}>

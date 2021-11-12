@@ -7,7 +7,7 @@ import { WalletLinkConnector }    from "@web3-react/walletlink-connector";
 import Founders from './Founders'
 
 import ContractAbi from '../artifacts/contracts/newDelinkuents.json';
-import FoundersContractAbi from '../artifacts/contracts/Contract.sol/newFounders.json';
+import FoundersContractAbi from '../artifacts/contracts/TestPolygon.sol/TestPolygon.json';
 import Modal from './Modal.js';
 import './Home.css'
 import './Mint.css'
@@ -27,9 +27,9 @@ const mainnetConfig = {
 }
 
 const mainnetFoundersConfig = {
-    'CONTRACT': '0x835e49da27Fc0E10dAC8Ecd2B84039011Fd7baCD',
+    'CONTRACT': '0x58F40481a2388f8e6b36a853C3A7f31D55feAAeA',
     'CHAIN_ID':  1,
-    'RPC_URL':   'https://mainnet.infura.io/v3/be0168ea214b4489b69e0787ca0d13e0',
+    'RPC_URL':   'https://polygon-mainnet.infura.io/v3/ae53d9d72c71435baa7af541d3f9c7fd',
     'ABI':       FoundersContractAbi
 }
 
@@ -265,7 +265,7 @@ export default function Home () {
 
             const txn = await contractWithSigner.mint(howManyTokens, overrides)
             await txn.wait();
-            setMintingSuccess(howManyTokens)
+            setMintingSuccessDelinkuent(howManyTokens)
         } catch (error) {
             if (error.error) {
                 setMintingError(error.error.message)
@@ -315,7 +315,7 @@ export default function Home () {
 
             const txn = await contractWithSigner.usePoints(howManyTokens, overrides)
             await txn.wait();
-            setMintingSuccess(howManyTokens)
+            setMintingSuccessDelinkuent(howManyTokens)
         } catch (error) {
             if (error.error) {
                 setMintingError(error.error.message)
@@ -328,6 +328,11 @@ export default function Home () {
         if (foundersContract && address) {
             setPoints(parseInt((await foundersContract.ownerPoints(address)).toString(), 10)); 
         }
+    }
+
+    const setMintingSuccessDelinkuent = (howManyTokens) => {
+        setErrorMessage("Congrats on minting " + howManyTokens + " Delinkuents!!");
+        toggleModal(true);
     }
 
     const setMintingSuccess = (howManyTokens) => {
