@@ -267,30 +267,38 @@ export default function Founders () {
 
     const returnMint = <div className="founders" >
                             <div className="foundersBg">
-                                <div className="founders__imgWrapper">
-                                    <img className="founders__logo" src={animationGif} alt="Logo"/>
+                                <div className="foundersidk">
+                                    <div className="founders__imgWrapper">
+                                        <img className="founders__logo" src={animationGif} alt="Logo"/>
+                                    </div>
+                                    <div className="founders__textWrapper"> 
+                                        <div className="founders__buttonWrapper" >
+                                            {signedIn ? <button className="founders__button" onClick={() => signOut()}>Wallet Connected To Founders Coins<br /> Click to Sign Out</button> : <button className="founders__button" onClick={() => signIn()}>Connect Wallet To Founders Coins</button>}
+                                        </div>
+                                        <p className="founders__text">Number of Founders Coins Minted: {totalSupply} / 2000<br />Input Number of Founder Coins to Mint (0.02 ETH):</p>
+                                        <div className={signedIn ? "founders__signIn-input" : "founders__signIn-input-false"}>
+                                            <input 
+                                                type="number" 
+                                                min="1"
+                                                max={10}
+                                                value={howManyTokens}
+                                                onChange={ e => checkHowMany(e.target.value) }
+                                                name="" 
+                                            />
+                                        </div>
+                                        <div className="founders__buttonWrapper">
+                                            {howManyTokens > 0 ? <button className="founders__button" onClick={() => mint()}>MINT {howManyTokens} FOUNDERS COIN(S)</button> : <button className="mint__button" onClick={() => mintOne()}>MINT {howManyTokens} FOUNDERS COINS(S)</button>}
+                                            
+                                        </div>
+                                    </div>
                                 </div>
-                                <div className="founders__textWrapper"> 
-                                    <div className="founders__buttonWrapper" >
-                                        {signedIn ? <button className="founders__button" onClick={() => signOut()}>Wallet Connected To Founders Coins<br /> Click to Sign Out</button> : <button className="founders__button" onClick={() => signIn()}>Connect Wallet To Founders Coins</button>}
-                                    </div>
-                                    <p className="founders__text">Number of Founders Coins Minted: {totalSupply} / 2000<br />Input Number of Founder Coins to Mint (0.04 ETH):</p>
-                                    <div className={signedIn ? "founders__signIn-input" : "founders__signIn-input-false"}>
-                                        <input 
-                                            type="number" 
-                                            min="1"
-                                            max={10}
-                                            value={howManyTokens}
-                                            onChange={ e => checkHowMany(e.target.value) }
-                                            name="" 
-                                        />
-                                    </div>
-                                    <div className="founders__buttonWrapper">
-                                        {howManyTokens > 0 ? <button className="founders__button" onClick={() => mint()}>MINT {howManyTokens} FOUNDERS COIN(S)</button> : <button className="mint__button" onClick={() => mintOne()}>MINT {howManyTokens} FOUNDERS COINS(S)</button>}
-                                        
-                                    </div>
+                                <div className="founders__scroll">
+                                    <p className="special">The Founder Coin Benefits Include:</p>
+                                    <p>Covers mint cost for a Crypto Delinkuent (just pay gas).</p>
+                                    <p>Accrues points that can be used for future drops, season pass or our merch (just pay gas) these points can also be saved and spent how and when you want.</p>
                                 </div>
                             </div>
+                            
                             <Modal
                                 shown={modalShown}
                                 close={() => {

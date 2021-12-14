@@ -24,7 +24,7 @@ export default function Roadmap () {
                 <p>100% Sold, our member only merch store becomes active. Start planning Delinkuent Con/ Vegas party meet up.</p>
             </div>
             <div className="roadmap__postTitle">
-                <h2>Post Launch Roadmap Q4 2021</h2>
+                <h2>Post Launch Roadmap Q1 & Q2 2022</h2>
             </div>
             <div className="roadmap__wrapper">
                 <div className="roadmap__group">

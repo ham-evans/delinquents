@@ -1,6 +1,6 @@
 
-.foundersBg { 
-    height: 80vh;
+.foundersBg {
+    height: 90vh;
     width: auto;
     margin: 0;
     background-color: #191C1F;
@@ -9,14 +9,32 @@
     text-align: center;
     z-index: 1;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     padding-bottom: 80px;
     color: #fff;
     background-image: url('../images/asfalt-light.png');
-    
+    overflow: visible;
 }
 
-.founders__imgWrapper { 
+.foundersidk {
+    display: flex;
+    flex-direction: row;
+}
+
+.founders__scroll { 
+    width: 50%;
+    overflow: visible;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+}
+
+.special { 
+    font-size: 1.5rem;
+}
+
+.founders__imgWrapper {
     margin: auto 6vw;
     text-align: center;
     height: 90%;
@@ -25,13 +43,13 @@
     overflow: visible;
 }
 
-.founders__logo { 
+.founders__logo {
     padding-top: 80px;
     object-fit: contain;
     height: 90%;
 }
 
-.founders__textWrapper { 
+.founders__textWrapper {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -46,18 +64,18 @@
     font-size: 1.4rem;
 }
 
-.founders__buttonWrapper { 
+.founders__buttonWrapper {
     transition: all .35s ease;
     z-index: 4;
     overflow: visible;
 }
 
-.founders__buttonWrapper:hover { 
+.founders__buttonWrapper:hover {
     transform: scale(1.05);
     cursor: pointer;
 }
 
-.founders__button { 
+.founders__button {
     background-color: rgba(25,28,31, 0.7);
     padding: 15px 50px;
     padding-bottom: 10px;
@@ -73,7 +91,7 @@
     cursor: pointer;
 }
 
-.founders__signIn-input input { 
+.founders__signIn-input input {
     background-color: rgba(25,28,31, 0.7);
     padding: 6px 30px;
     padding-left: 35px;
@@ -85,7 +103,7 @@
     margin-bottom: 35px;
 }
 
-.founders__signIn-input-false input { 
+.founders__signIn-input-false input {
     background-color: rgba(25,28,31, 0.7);
     padding: 6px 30px;
     padding-left: 35px;
@@ -97,33 +115,33 @@
     margin-bottom: 35px;
 }
 
-@media screen and (max-width: 1150px) { 
-    .foundersBg { 
+@media screen and (max-width: 1150px) {
+    .foundersBg {
         height: 100%;
         flex-direction: column;
         padding-bottom: 150px;
     }
-    .founders__imgWrapper { 
+    .founders__imgWrapper {
         height: 40%;
         padding-bottom: 15px;
     }
 
-    .founders__logo { 
+    .founders__logo {
         padding-top: 0px;
         object-fit: contain;
         height: 250px;
     }
 
-    .founders__text { 
+    .founders__text {
         line-height: 30px;
         font-size: 1rem;
     }
 
-    .founders__button { 
+    .founders__button {
         font-size: 1.6rem;
     }
 
-    .founders__signIn-input input { 
+    .founders__signIn-input input {
         margin-bottom: 20px;
     }
 }

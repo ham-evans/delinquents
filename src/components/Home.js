@@ -6,7 +6,7 @@ import { WalletConnectConnector } from "@web3-react/walletconnect-connector";
 import { WalletLinkConnector }    from "@web3-react/walletlink-connector";
 import Founders from './Founders'
 
-import ContractAbi from '../artifacts/contracts/newDelinkuents.json';
+import ContractAbi from '../artifacts/contracts/TestPolygon.sol/TestPolygon.json';
 import FoundersContractAbi from '../artifacts/contracts/TestPolygon.sol/TestPolygon.json';
 import Modal from './Modal.js';
 import './Home.css'
@@ -30,7 +30,7 @@ const mainnetFoundersConfig = {
     'CONTRACT': '0x58F40481a2388f8e6b36a853C3A7f31D55feAAeA',
     'CHAIN_ID':  137,
     'RPC_URL':   'https://polygon-mainnet.infura.io/v3/ae53d9d72c71435baa7af541d3f9c7fd',
-    'ABI':       FoundersContractAbi
+    'ABI':       FoundersContractAbi.abi
 }
 
 /*
@@ -41,7 +41,7 @@ const rinkebyConfig = {
     'ABI':       ContractAbi.abi
 }*/
 
-const config = mainnetConfig;
+const config = mainnetFoundersConfig;
 
 const CONNECTORS = {};
 CONNECTORS.Walletlink = new WalletLinkConnector({
@@ -377,7 +377,7 @@ export default function Home () {
                                 {signedIn ? <button className="mint__button" onClick={() => signOut()}>Wallet Connected To Crypto Delinkuents<br /> Click to Sign Out</button> : <button className="mint__button" onClick={() => signIn()}>Connect Wallet To Crypto Delinkuents</button>}
                             </div>
                         </div>
-                        <p className="mint__text">Number of Crypto Delinkuents Minted: {totalSupply} / 6666<br />Input Number of Crypto Delinkuents to Mint <br />(0.06 ETH or 1 Founders Point):</p>
+                        <p className="mint__text">Number of Crypto Delinkuents Minted: {totalSupply} / 6666<br />Input Number of Crypto Delinkuents to Mint <br />(0.02 ETH or 1 Founders Point):</p>
                         <div className={signedIn ? "mint__signIn-input" : "mint__signIn-input-false"}>
                             <input 
                                 type="number" 
