@@ -6,8 +6,8 @@ import { WalletConnectConnector } from "@web3-react/walletconnect-connector";
 import { WalletLinkConnector }    from "@web3-react/walletlink-connector";
 import Founders from './Founders'
 
-import ContractAbi from '../artifacts/contracts/TestPolygon.sol/TestPolygon.json';
-import FoundersContractAbi from '../artifacts/contracts/TestPolygon.sol/TestPolygon.json';
+import ContractAbi from '../artifacts/contracts/newDelinkuents.json';
+import FoundersContractAbi from '../artifacts/contracts/Contract.sol/newFounders.json';
 import Modal from './Modal.js';
 import './Home.css'
 import './Mint.css'
@@ -26,11 +26,11 @@ const mainnetConfig = {
     'ABI':       ContractAbi
 }
 
-const mainnetFoundersConfig = {
-    'CONTRACT': '0x58F40481a2388f8e6b36a853C3A7f31D55feAAeA',
-    'CHAIN_ID':  137,
-    'RPC_URL':   'https://polygon-mainnet.infura.io/v3/ae53d9d72c71435baa7af541d3f9c7fd',
-    'ABI':       FoundersContractAbi.abi
+const foundersConfig = {
+    'CONTRACT': '0x6313D6D1330544358c5982b00a122f716098782E',
+    'CHAIN_ID':  1,
+    'RPC_URL':   'https://mainnet.infura.io/v3/be0168ea214b4489b69e0787ca0d13e0',
+    'ABI':       FoundersContractAbi
 }
 
 /*
@@ -41,7 +41,7 @@ const rinkebyConfig = {
     'ABI':       ContractAbi.abi
 }*/
 
-const config = mainnetFoundersConfig;
+const config = mainnetConfig;
 
 const CONNECTORS = {};
 CONNECTORS.Walletlink = new WalletLinkConnector({
@@ -93,9 +93,9 @@ export default function Home () {
     const ethereumFoundersSession = useMemo(() => {
         if( window.ethereum ){
             const session = new EthereumSession({
-                chain:           EthereumSession.COMMON_CHAINS[ mainnetFoundersConfig.CHAIN_ID ],
-                contractAddress: mainnetFoundersConfig.CONTRACT,
-                contractABI:     mainnetFoundersConfig.ABI
+                chain:           EthereumSession.COMMON_CHAINS[ foundersConfig.CHAIN_ID ],
+                contractAddress: foundersConfig.CONTRACT,
+                contractABI:     foundersConfig.ABI
             });
             return session;
         }
