@@ -15,7 +15,7 @@ import EthereumSession from '../lib/eth-session.js';
 
 
 const mainnetConfig = {
-    'CONTRACT': '0x835e49da27Fc0E10dAC8Ecd2B84039011Fd7baCD',
+    'CONTRACT': '0x6313D6D1330544358c5982b00a122f716098782E',
     'CHAIN_ID':  1,
     'RPC_URL':   'https://mainnet.infura.io/v3/be0168ea214b4489b69e0787ca0d13e0',
     'ABI':       ContractAbi
